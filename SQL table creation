@@ -1,0 +1,21 @@
+CREATE DATABASE web2_assignment1;
+
+USE web2_assignment1;
+
+CREATE TABLE category (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(100) NOT NULL,
+    rank INT NOT NULL,
+    status ENUM('published','unpublished') NOT NULL
+);
+
+CREATE TABLE product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_id INT NOT NULL,
+    product_name VARCHAR(100) NOT NULL,
+    price INT NOT NULL,
+    status ENUM('published','unpublished') NOT NULL,
+    description TEXT NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES category(id)
+);
