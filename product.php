@@ -1,12 +1,6 @@
 <?php
 $error = [];
-
-$category = "";
-$name = "";
-$price = "";
-$status = "";
-$description = "";
-$img = "";
+$category = ""; $name = ""; $price = ""; $status = ""; $description = ""; $img = "";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -71,29 +65,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <option value="clothing" <?php if($category=="clothing") echo "selected"; ?>>Clothing</option>
         <option value="books" <?php if($category=="books") echo "selected"; ?>>Books</option>
     </select>
-    <?php
-    if(isset($error['category'])){
-        echo $error['category'];
-    }
-    ?>
+    <?php echo $error['category'] ?? ''; ?>
     <br><br>
 
     <label>Name</label>
     <input type="text" name="name" value="<?php echo $name; ?>">
-    <?php
-    if(isset($error['name'])){
-        echo $error['name'];
-    }
-    ?>
+    <?php echo $error['name'] ?? ''; ?>
     <br><br>
 
     <label>Price</label>
     <input type="number" name="price" step="0.01" value="<?php echo $price; ?>">
-    <?php
-    if(isset($error['price'])){
-        echo $error['price'];
-    }
-    ?>
+    <?php echo $error['price'] ?? ''; ?>
     <br><br>
 
     <label>Status:</label>
@@ -106,29 +88,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <?php if($status=="unpublished") echo "checked"; ?>>
     Unpublished
 
-    <?php
-    if(isset($error['status'])){
-        echo $error['status'];
-    }
-    ?>
+    <?php echo $error['status'] ?? ''; ?>
     <br><br>
 
     <label>Description</label>
     <textarea name="description"><?php echo $description; ?></textarea>
-    <?php
-    if(isset($error['description'])){
-        echo $error['description'];
-    }
-    ?>
+    <?php echo $error['description'] ?? ''; ?>
     <br><br>
 
     <label>Image</label>
     <input type="file" name="img">
-    <?php
-    if(isset($error['img'])){
-        echo $error['img'];
-    }
-    ?>
+    <?php echo $error['img'] ?? ''; ?>
     <br><br>
 
     <button type="submit">Save</button>
